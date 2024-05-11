@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='english'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Design</title>
+    <!-- Remix Icon CDN -->
+    <link href='https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css' rel='stylesheet'>
+    <!-- Attached CSS file style.css -->
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <!-- Tailwind CSS CDN -->
+    <script src='https://cdn.tailwindcss.com'></script>
+    <!-- Attached JS filt script.js -->
+    <script defer src='/javascripts/script.js'></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 p-10">
+        <div class="text-center">
+            <h1 class="text-white font-bold text-4xl uppercase">Blog</h1>
+        </div>
+        <div class="text-white mt-20">
+            <form action="/create" method="post">
+                <input class="block w-full px-5 py-2 rounded-md outline-none bg-zinc-800" type="text" placeholder="Title" name="title">
+                <textarea class="block w-full px-5 py-2 mt-2 rounded-md outline-none bg-zinc-800 resize-none" placeholder="Description" name="details"></textarea>
+                <input class="bg-blue-600 px-4 py-2 rounded-md mt-2  " type="submit" value="Click me">
+            </form>
+        </div>
+        <div class="tasks flex gap-4 flex-wrap mt-[15vh]">
+            <% if(files.length > 0) { %>
+                <% files.forEach((file) => { %>    
+                <div class="task px-5 py-4 bg-zinc-800 rounded-md">
+                    <div class="flex gap-5 items-center">
+                        <div class="title text-white text-3xl trancking-tighter"><%= file.replace('txt','').replace('.','').split('_').join(' ') %></div>
+                        <a class="text-white bg-blue-500 px-3 py-1 rounded-md" href="/edit/<%= file %>">edit</a>
+                    </div>
+                    <a class="text-blue-500 inline-block mt-2" href="/file/<%= file %>">Read More</a>
+                </div>
+                <% })%>
+            <% } else { %>
+                <h1 class="text-lighter text-zinc-500 capitalize">no task yet</h1>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang='english'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Design</title>
+    <!-- Remix Icon CDN -->
+    <link href='https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css' rel='stylesheet'>
+    <!-- Attached CSS file style.css -->
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <!-- Tailwind CSS CDN -->
+    <script src='https://cdn.tailwindcss.com'></script>
+    <!-- Attached JS filt script.js -->
+    <script defer src='/javascripts/script.js'></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 p-10">
+        <a class="text-blue-500 capitalize" href="/">go back</a>
+        <div class="w-full h-full flex flex-col gap-4 items-center mt-10 px-[20vw]">
+            <h1 class="text-white text-4xl calpitalize"><%= filename.replace('txt', '').replace('.', '').split('_').join(' ').toUpperCase() %></h1>
+            <p class="text-white font-light text-xl"><%= filedata %></p>
+        </div>
+    </div>
+</body>
+</html>
+
+
